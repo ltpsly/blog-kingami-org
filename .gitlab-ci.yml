@@ -1,1 +1,24 @@
 image: node:latest
+
+# Add --unsafe-perm to resolve problems with node-gyp infinite loop on Docker
+before_script:
+  - npm install --silent --unsafe-perm -g @angular/cli@1.7.3
+  - npm install --silent --unsafe-perm -g firebase-tools
+  - npm install --silent --unsafe-perm
+
+cache:
+  paths:
+    - node_modules/
+  key: $CI_BUILD_REPO
+  
+stages:
+  - deploy
+
+deploy_to_firebase:
+  stage: deploy
+  environment: production
+  only:
+    - master
+  script:
+    - ng build --prod
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_DEPLOY_KEY
