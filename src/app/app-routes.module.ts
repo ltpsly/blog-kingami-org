@@ -9,8 +9,8 @@ import { NextComponent } from './main/shared/components/next/next.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'user', component: UserComponent },
+  { path: 'feed', component: HomeComponent },
+  { path: 'me', component: UserComponent },
   { path: 'about', component: AboutComponent },
   { path: 'next', component: NextComponent }
 ];

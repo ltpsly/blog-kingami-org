@@ -10,6 +10,9 @@ import { BlogComponent } from './main/blog/blog.component';
 import { AboutComponent } from './main/shared/components/about/about.component';
 import { NextComponent } from './main/shared/components/next/next.component';
 import { FooterComponent } from './main/shared/components/footer/footer.component';
+import { BlogHomeComponent } from './main/blog/blog-home/blog-home.component';
+import { BlogPostComponent } from './main/blog/blog-post/blog-post.component';
+import { BlogListComponent } from './main/blog/blog-list/blog-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { FooterComponent } from './main/shared/components/footer/footer.componen
     BlogComponent,
     AboutComponent,
     NextComponent,
-    FooterComponent
+    FooterComponent,
+    BlogHomeComponent,
+    BlogPostComponent,
+    BlogListComponent
   ],
   imports: [
     BrowserModule,
