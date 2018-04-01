@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" role="navigation">
-  <a class="navbar-brand" href="#">BLOG.KINGAMI.ORG</a>
+  <a class="navbar-brand" routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact: true}">
+    BLOG.KINGAMI.ORG
+  </a>
   <button 
     class="navbar-toggler navbar-toggler-right" 
     type="button" 
@@ -14,22 +16,22 @@
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="home">Home!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">You!</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="user">Me!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="about">About!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Next!</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="next">Next!</a>
       </li>
     </ul>
     <form class="form-inline">
       <div class="form-group">
         <div class="input-group input-group-sm">
-          <input class="form-control" id="search" placeholder="Search..." type="search">
+          <input class="form-control bg-light" id="search" placeholder="Search..." type="search">
           <div class="input-group-append">
             <button class="btn btn-outline-default btn-sm" type="submit">
               <i class="fa fa-search" aria-hidden="true"></i>

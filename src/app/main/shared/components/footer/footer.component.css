@@ -1,0 +1,12 @@
+#footer1 {
+    background: #232526;
+    background: -webkit-linear-gradient(to bottom, #414345, #232526);
+    background: linear-gradient(to bottom, #414345, #232526);
+}
+
+#footer2 {
+    box-shadow: 0 10px 10px -15px white inset;
+    background: #232526;
+    background: -webkit-linear-gradient(to bottom, #414345, #232526);
+    background: linear-gradient(to bottom, #414345, #232526);
+}
