@@ -16,6 +16,8 @@ import { ErrorComponent } from './main/shared/components/error/error.component';
 import { WelcomeComponent } from './main/shared/components/modals/welcome/welcome.component';
 import { DeleteComponent } from './main/shared/components/modals/delete/delete.component';
 import { ConfirmComponent } from './main/shared/components/modals/confirm/confirm.component';
+import { BlogModule } from './main/blog/blog.module';
+import { BlogSidebarComponent } from './main/blog/blog-sidebar/blog-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,13 @@ import { ConfirmComponent } from './main/shared/components/modals/confirm/confir
     ErrorComponent,
     WelcomeComponent,
     DeleteComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    BlogSidebarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutesModule
+    AppRoutesModule,
+    BlogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

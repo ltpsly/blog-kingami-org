@@ -1,3 +1,18 @@
-<p>
-  blog-home works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <nav>
+        <div class="nav nav-tabs" role="tablist">
+            <a class="nav-item nav-link"  routerLinkActive="active" routerLink="./" [routerLinkActiveOptions]="{exact: true}">Global Feed</a>
+            <a class="nav-item nav-link" routerLinkActive="active" routerLink="post">My Feed</a>
+            <a class="nav-item nav-link" routerLinkActive="active" routerLink="post">#tag</a>
+        </div>
+      </nav>
+      <h2>BLOG HOME BANNER - TABS</h2>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-md-4">
+      <app-blog-sidebar></app-blog-sidebar>
+    </div>
+  </div>
+</div>

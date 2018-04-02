@@ -7,10 +7,15 @@ import { UserComponent } from './main/user/user.component';
 import { AboutComponent } from './main/shared/components/about/about.component';
 import { NextComponent } from './main/shared/components/next/next.component';
 import { BlogHomeComponent } from './main/blog/blog-home/blog-home.component';
+import { BlogPostComponent } from './main/blog/blog-post/blog-post.component';
+import { BlogListComponent } from './main/blog/blog-list/blog-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'feed', component: BlogHomeComponent },
+  { path: 'feed', component: BlogHomeComponent, children: [
+    { path: '', component: BlogListComponent },
+    { path: 'post', component: BlogPostComponent }
+  ]},
   { path: 'me', component: UserComponent },
   { path: 'about', component: AboutComponent },
   { path: 'next', component: NextComponent }
