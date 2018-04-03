@@ -18,6 +18,7 @@ import { DeleteComponent } from './main/shared/components/modals/delete/delete.c
 import { ConfirmComponent } from './main/shared/components/modals/confirm/confirm.component';
 import { BlogModule } from './main/blog/blog.module';
 import { BlogSidebarComponent } from './main/blog/blog-sidebar/blog-sidebar.component';
+import { BlogCommentComponent } from './main/blog/blog-comment/blog-comment.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BlogSidebarComponent } from './main/blog/blog-sidebar/blog-sidebar.comp
     WelcomeComponent,
     DeleteComponent,
     ConfirmComponent,
-    BlogSidebarComponent
+    BlogSidebarComponent,
+    BlogCommentComponent
   ],
   imports: [
     BrowserModule,
