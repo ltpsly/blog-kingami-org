@@ -1,48 +1,69 @@
-<!-- Post Content Column -->
-<div>
+<div class="card my-4 border-light">
+  <div class="card-body">
 
-    <!-- Title -->
-    <h1 class="mt-4">{{article.title}}</h1>
-<h1>this is title</h1>
+	<!-- Title -->
+	<h1 class="mt-4">{{article.title}}</h1>
+	<h1>this is title</h1><!-- Author -->
+	<p>Post by {{article.updatedAt}} on {{article.updatedAt}}</p>
+	<hr>
+	Tags
+	<ul class="list-inline">
+		<li class="list-inline-item">tags</li>
+	</ul>
+	<ul class="list-inline">
+		<li class="list-inline-item mb-1">
+			<a class="btn btn-light btn-sm px-1" href="#" role="button">Web Design</a>
+		</li>
+		<li class="list-inline-item mb-1">
+			<a class="btn btn-light btn-sm px-1" href="#" role="button">HTML</a>
+		</li>
+		<li class="list-inline-item mb-1">
+			<a class="btn btn-light btn-sm px-1" href="#" role="button">Angular</a>
+		</li>
+		<li class="list-inline-item mb-1">
+			<a class="btn btn-light btn-sm px-1" href="#" role="button">Machine learning</a>
+		</li>
+		<li class="list-inline-item mb-1">
+			<a class="btn btn-light btn-sm px-1" href="#" role="button">Deep learning</a>
+		</li>
+		<li class="list-inline-item mb-1">
+			<a class="btn btn-light btn-sm px-1" href="#" role="button">Data Science</a>
+		</li>
+		<li class="list-inline-item mb-1">
+			<a class="btn btn-light btn-sm px-1" href="#" role="button">Artificial Intelligence</a>
+		</li>
+	</ul>
+	<hr>
+	<!-- Post Content -->
+	{{article.body}}
+	<p>body</p>
+	<hr>
+	<hr>
+	<!-- Post Recommendation -->
+	<p>You might like these post also</p>
+	<hr>
 
-    <!-- Author -->
-    <p >
-      Post by {{article.updatedAt}} on {{article.updatedAt}}
-    </p>
-
-    <hr>
-
-    Tags 
-    <ul class="list-inline">
-      <li class="list-inline-item" *ngFor="let tag of article.tagList">
-tags
-      </li>
-    </ul>
-    <hr>
-
-    <!-- Post Content -->
-    {{article.body}} 
-    <p>body</p>
-
-    <hr>
-    <hr>
-
-    <!-- Post Recommendation -->
-    <p>You might like these post also</p>
-<hr>
-    <!-- Comments Form -->
-    <div class="card my-4">
-      <h5 class="card-header">Leave a Comment:</h5>
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <textarea class="form-control" rows="3"></textarea>
-            </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
 
   </div>
+</div>
+
+
+
+	<!-- Comments Form -->
+	<div class="card my-4 border-light">
+		<h4 class="card-header">Leave a Comment:</h4>
+		<div class="card-body">
+			<form>
+        <div class="form-group">
+          <input type="text" class="form-control form-control-sm" id="title" placeholder="Title">
+        </div>
+				<div class="form-group">
+					<textarea class="form-control form-control-sm" ty name="description" placeholder="Description" rows="3" ></textarea>
+        </div>
+        <button class="btn btn-default btn-sm btn-block" type="submit">Post Comment</button>
+			</form>
+		</div>
+	</div>
+
 <h3>Comments</h3>
 <app-blog-comment></app-blog-comment>

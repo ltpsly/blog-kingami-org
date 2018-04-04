@@ -2,6 +2,6 @@
     color: black;
 }
 
-/* .nav-tabs a.active  {
-    background-color: whitesmoke;
-} */
+.nav-tabs a.active  {
+    background-color: #FBFCFC;
+}
