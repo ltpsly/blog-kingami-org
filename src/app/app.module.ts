@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { MarkdownModule } from 'ngx-markdown';
+
+import { config } from './app.config';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './main/home/home.component';
@@ -19,6 +24,7 @@ import { ConfirmComponent } from './main/shared/components/modals/confirm/confir
 import { BlogModule } from './main/blog/blog.module';
 import { BlogSidebarComponent } from './main/blog/blog-sidebar/blog-sidebar.component';
 import { BlogCommentComponent } from './main/blog/blog-comment/blog-comment.component';
+import { MarkedPipe } from './main/shared/pipes/marked.pipe';
 
 @NgModule({
   declarations: [
@@ -37,12 +43,16 @@ import { BlogCommentComponent } from './main/blog/blog-comment/blog-comment.comp
     DeleteComponent,
     ConfirmComponent,
     BlogSidebarComponent,
-    BlogCommentComponent
+    BlogCommentComponent,
+    MarkedPipe
   ],
   imports: [
     BrowserModule,
     AppRoutesModule,
-    BlogModule
+    AngularFireModule.initializeApp(config, config.projectId),
+    AngularFirestoreModule.enablePersistence(),
+    BlogModule,
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
