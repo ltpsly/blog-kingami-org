@@ -26,6 +26,7 @@ import { BlogSidebarComponent } from './main/blog/blog-sidebar/blog-sidebar.comp
 import { BlogCommentComponent } from './main/blog/blog-comment/blog-comment.component';
 import { FormatterPipe } from './main/shared/pipes/formatter.pipe';
 import { BlogCommentFormComponent } from './main/blog/blog-comment-form/blog-comment-form.component';
+import { SpinnerComponent } from './main/shared/components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { BlogCommentFormComponent } from './main/blog/blog-comment-form/blog-com
     BlogSidebarComponent,
     BlogCommentComponent,
     FormatterPipe,
-    BlogCommentFormComponent
+    BlogCommentFormComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
