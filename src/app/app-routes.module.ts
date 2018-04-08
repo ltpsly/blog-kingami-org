@@ -12,9 +12,9 @@ import { BlogListComponent } from './main/blog/blog-list/blog-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'feed', component: BlogHomeComponent, children: [
+  { path: 'posts', component: BlogHomeComponent, children: [
     { path: '', component: BlogListComponent },
-    { path: 'post', component: BlogPostComponent }
+    { path: ':post', component: BlogPostComponent }
   ]},
   { path: 'me', component: UserComponent },
   { path: 'about', component: AboutComponent },

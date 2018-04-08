@@ -24,7 +24,8 @@ import { ConfirmComponent } from './main/shared/components/modals/confirm/confir
 import { BlogModule } from './main/blog/blog.module';
 import { BlogSidebarComponent } from './main/blog/blog-sidebar/blog-sidebar.component';
 import { BlogCommentComponent } from './main/blog/blog-comment/blog-comment.component';
-import { MarkedPipe } from './main/shared/pipes/marked.pipe';
+import { FormatterPipe } from './main/shared/pipes/formatter.pipe';
+import { BlogCommentFormComponent } from './main/blog/blog-comment-form/blog-comment-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MarkedPipe } from './main/shared/pipes/marked.pipe';
     ConfirmComponent,
     BlogSidebarComponent,
     BlogCommentComponent,
-    MarkedPipe
+    FormatterPipe,
+    BlogCommentFormComponent
   ],
   imports: [
     BrowserModule,
