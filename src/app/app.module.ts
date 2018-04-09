@@ -27,6 +27,14 @@ import { BlogCommentComponent } from './main/blog/blog-comment/blog-comment.comp
 import { FormatterPipe } from './main/shared/pipes/formatter.pipe';
 import { BlogCommentFormComponent } from './main/blog/blog-comment-form/blog-comment-form.component';
 import { SpinnerComponent } from './main/shared/components/spinner/spinner.component';
+import { BlogEffects } from './main/blog/store/blog.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { AppReducers } from './main/store/app.reducers';
+import { ApiService } from './main/shared/services/api.service';
+import { BlogService } from './main/shared/services/blog.service';
+import { UserService } from './main/shared/services/user.service';
+import { AuthService } from './main/shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -56,9 +64,11 @@ import { SpinnerComponent } from './main/shared/components/spinner/spinner.compo
     AngularFireModule.initializeApp(config, config.projectId),
     AngularFirestoreModule.enablePersistence(),
     BlogModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    StoreModule.forRoot(AppReducers),
+    EffectsModule.forRoot([BlogEffects])
   ],
-  providers: [],
+  providers: [ApiService, BlogService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { Article } from '../../shared/models';
 
 export const LOADING = 'LOADING';
 export const LOAD_POSTS = 'LOAD_POSTS';
@@ -12,12 +13,12 @@ export class Loading implements Action {
 
 export class LoadPosts implements Action {
     readonly type = LOAD_POSTS;
-    constructor(public payload: any) {}
+    constructor() {}
 }
 
 export class Posts implements Action {
     readonly type = POSTS;
-    constructor(public payload: any) {}
+    constructor(public payload: Article[]) {}
 }
 
 export class Post implements Action {
