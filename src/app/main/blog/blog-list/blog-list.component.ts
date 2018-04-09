@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
 import { Article } from '../../shared/models';
-
+import { BlogService } from '../../shared/services/blog.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -11,14 +10,18 @@ import { Article } from '../../shared/models';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
-  postsCollection: AngularFirestoreCollection<Article>;
-  posts$: Observable<Article[]>;
+  posts: Observable<Article[]>;
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private blogService: BlogService) { }
 
   ngOnInit() {
-    this.postsCollection = this.afs.collection<Article>('posts');
-    this.posts$ = this.postsCollection.valueChanges();
+    this.posts = this.blogService.getPosts();
+    // this.posts.subscribe(
+    //   (res) => {
+    //     const post = res.find((arr) => arr.title === 'MyToy Realworld');
+    //     console.log('get post test', post);
+    //   }
+    // );
   }
 
 }

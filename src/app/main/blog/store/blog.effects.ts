@@ -24,7 +24,7 @@ export class BlogEffects {
     blogLoadPost = this.actions$
     .ofType(FromBlogActions.LOAD_POSTS)
     .map((action: FromBlogActions.LoadPosts) => {
-        return action.payload;
+        return '';
     })
     .switchMap((options: any) => {
         return Observable.of(this.afs.collection<Article>('posts'));
@@ -32,6 +32,7 @@ export class BlogEffects {
     .mergeMap((postsCollection) => {
         return postsCollection.valueChanges()
             .map((posts) => {
+                console.log('posts in effects:    ', posts);
                 return {
                     type: FromBlogActions.POSTS,
                     payload: posts
