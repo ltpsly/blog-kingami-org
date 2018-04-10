@@ -1,36 +1,37 @@
-<div id="loading-spinner">
+<div id="loading-spinner" *ngIf="loading">
 	<i class="fa fa-spinner fa-pulse fa-2x"></i>
 </div>
 
-<div class="card my-4 border-light">
+{{ post | async | json }}
+
+<div class="card my-4 border-light" *ngIf="!loading">
   <div class="card-body">
 		<h3 class="card-title">
-			this is a header
-			{{ post.title }}
+			{{ post.title | async }}
 		</h3>
 		<hr>
 		<div class="text-muted">
-			Posted on {{ post.createdAt | date }} by
-			<a href="http://hbamithkumara.com">{{ post.author.username }}</a>
+			Posted on {{ post.createdAt | async | date }} by
+			<a href="http://hbamithkumara.com">{{ post.author.username | async }}</a>
 		</div>
-		<hr>
-		<!-- Post Content -->
-		{{article.body}}
-		<p>body</p>
-		<hr>
-		<p>tags</p>
+		
 		<ul class="list-inline">
-			<li class="list-inline-item mb-1" *ngFor="let tag of post.tagList">
+			tags:
+			<li class="list-inline-item mb-1" *ngFor="let tag of (post.tagList | async)">
 				<a class="btn btn-light btn-sm px-1" href="#" role="button">{{ tag }}</a>
 			</li>
 		</ul>
+		<hr>
+		<!-- Post Content -->
+		<markdown [data]="post.body | async | formatter"></markdown>
+		
 		<hr>
 		<!-- Post Recommendation -->
 		<p>You might like these post also</p>
   </div>
 </div>
 
-<app-blog-comment-form></app-blog-comment-form>
+<!-- <app-blog-comment-form></app-blog-comment-form> -->
 
 <h3>Comments</h3>
-<app-blog-comment></app-blog-comment>
+<!-- <app-blog-comment></app-blog-comment> -->

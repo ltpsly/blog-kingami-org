@@ -2,15 +2,16 @@
 	<i class="fa fa-spinner fa-pulse fa-2x"></i>
 </div>
 
-{{ posts | async | json }}
+<!-- {{ (postsState | async).posts | json }} -->
 
 <!-- Blog Post List -->
 <ul class="list-unstyled">
-  <li *ngFor="let post of posts | async">
+  <!-- <li *ngFor="let post of posts | async"> -->
+  <li *ngFor="let post of (postsState | async).posts">
     <div class="card my-3 border-light">
       <div class="card-body">
         <h3 class="card-title">
-          <a class="card-link text-dark" [routerLink]="post.title" >{{ post.title }}</a>
+          <a class="card-link text-dark" [routerLink]="[post.title]" >{{ post.title }}</a>
         </h3>
         <!-- <h5 class="card-subtitle">
           <a [routerLink]="post.slug" >{{ post.slug }}</a>

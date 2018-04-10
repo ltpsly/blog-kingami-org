@@ -21,7 +21,7 @@ export class BlogEffects {
     ) { }
 
     @Effect()
-    blogLoadPost = this.actions$
+    blogLoadPosts = this.actions$
     .ofType(FromBlogActions.LOAD_POSTS)
     .map((action: FromBlogActions.LoadPosts) => {
         return '';
@@ -36,6 +36,30 @@ export class BlogEffects {
                 return {
                     type: FromBlogActions.POSTS,
                     payload: posts
+                };
+            })
+            .catch((error) => {
+                console.log('error in retrieving posts', error);
+                return Observable.of(error);
+            });
+    });
+
+    @Effect()
+    blogLoadPost = this.actions$
+    .ofType(FromBlogActions.GET_POST)
+    .map((action: FromBlogActions.GetPost) => {
+        return action.payload;
+    })
+    .switchMap((options: any) => {
+        return Observable.of(this.afs.collection<Article>('posts'));
+    })
+    .mergeMap((postsCollection) => {
+        return postsCollection.valueChanges()
+            .map((posts) => {
+                console.log('post in effect: post   ', posts[0]);
+                return {
+                    type: FromBlogActions.POST,
+                    payload: posts[0]
                 };
             })
             .catch((error) => {

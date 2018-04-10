@@ -10,6 +10,9 @@ export class ApiService {
   constructor(private afs: AngularFirestore) { }
 
   get(): Observable<any> {
+    this.afs.collection('posts').valueChanges()
+      .subscribe(() => {
+      });
     return this.afs.collection('posts').valueChanges();
   }
 

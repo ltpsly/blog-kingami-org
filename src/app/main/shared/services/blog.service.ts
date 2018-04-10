@@ -9,40 +9,31 @@ import { ApiService } from './api.service';
 
 @Injectable()
 export class BlogService {
-  posts: Observable<Article[]>;
+  gPosts: Observable<Article[]>;
+  tPosts: Observable<Article[]>;
+  uPosts: Observable<Article[]>;
+  sPosts: Observable<Article[]>;
 
   constructor(private afs: AngularFirestore, private apiService: ApiService) { }
 
   getPosts(): Observable<Article[]> {
-    if (this.posts === null || this.posts === undefined) {
-      this.posts = this.apiService.get();
-      console.log('test posts', typeof this.posts);
-      return this.posts;
+    console.log('Start of getPosts()');
+    if (this.gPosts === null || this.gPosts === undefined || !this.gPosts) {
+      this.gPosts = this.apiService.get();
+      console.log('im here GPs');
     }
-    return this.posts;
+    return this.gPosts;
   }
 
-  getPost(title: string): Article {
-    let post: Article;
-    console.log('im here in getpost');
-    if (this.posts === null || this.posts === undefined) {
-      console.log('something went wrong');
-    } else {
-      console.log('im here jkl');
-      this.posts.subscribe(
-        (res) => {
-          console.log('im here');
-          post = res.find((arr) => arr.title === title);
-          return post;
-        }
-      );
+  getPost(title: string): Observable<Article> {
+    console.log('Start of getPost()');
+    if (this.gPosts === null || this.gPosts === undefined) {
+      this.gPosts = this.apiService.get();
+      console.log('im here in GP');
     }
-    console.log('something went wrong very ');
-    // return this.posts.subscribe(
-    //   (res) => {
-    //     res.find()
-    //   });
-    return post;
+    return this.gPosts.map((posts) => {
+      return posts.find(post => post.title === title);
+    });
   }
 
 }
