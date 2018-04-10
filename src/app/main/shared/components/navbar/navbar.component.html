@@ -16,16 +16,16 @@
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="posts">Feed!</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['posts']">Feed!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="me">Me!</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['me']">Me!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="about">About!</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['about']">About!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="next">Next!</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['next']">Next!</a>
       </li>
     </ul>
     <form class="form-inline">

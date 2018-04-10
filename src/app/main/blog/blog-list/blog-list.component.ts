@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 
 import { Article } from '../../shared/models';
 import { BlogService } from '../../shared/services/blog.service';
+import * as fromBlogActions from '../store/blog.actions';
+import * as fromAppReducer from '../../store/app.reducers';
 
 @Component({
   selector: 'app-blog-list',
@@ -10,18 +13,17 @@ import { BlogService } from '../../shared/services/blog.service';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
-  posts: Observable<Article[]>;
+  // posts: Observable<Article[]>;
+  postsState: Observable<{posts: Article[]}>;
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private store: Store<fromAppReducer.AppState>) { }
 
   ngOnInit() {
-    this.posts = this.blogService.getPosts();
-    // this.posts.subscribe(
-    //   (res) => {
-    //     const post = res.find((arr) => arr.title === 'MyToy Realworld');
-    //     console.log('get post test', post);
-    //   }
-    // );
+    this.postsState = this.store.select('blogReducer');
+  }
+
+  onLoadPosts() {
+    return '';
   }
 
 }

@@ -4,6 +4,7 @@ import { Article } from '../../shared/models';
 export const LOADING = 'LOADING';
 export const LOAD_POSTS = 'LOAD_POSTS';
 export const POSTS = 'POSTS';
+export const GET_POST = 'GET_POST';
 export const POST = 'POST';
 
 export class Loading implements Action {
@@ -21,9 +22,14 @@ export class Posts implements Action {
     constructor(public payload: Article[]) {}
 }
 
-export class Post implements Action {
-    readonly type = POST;
-    constructor(public payload: any) { }
+export class GetPost implements Action {
+    readonly type = GET_POST;
+    constructor(public payload: any) {}
 }
 
-export type BlogActions = Loading | LoadPosts | Posts | Post;
+export class Post implements Action {
+    readonly type = POST;
+    constructor(public payload: Article) { }
+}
+
+export type BlogActions = Loading | LoadPosts | Posts | GetPost | Post;

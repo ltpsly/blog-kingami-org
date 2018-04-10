@@ -5,12 +5,14 @@ export interface BlogState {
     loading: boolean;
     posts: Article[];
     nPosts: number;
+    post: Article;
 }
 
 const initialState: BlogState = {
     loading: true,
     posts: [],
-    nPosts: 0
+    nPosts: 0,
+    post: null
 };
 
 export function blogReducer(state = initialState, action: FromBlogActions.BlogActions) {
@@ -20,17 +22,14 @@ export function blogReducer(state = initialState, action: FromBlogActions.BlogAc
                 ...state
             };
         case FromBlogActions.POSTS:
-            // const allPosts = [...state.posts, action.payload];
-            const allPosts = action.payload;
-            console.log('initial state:    ', state);
             return {
                 ...state,
-                posts: allPosts,
-                nPosts: allPosts.length
+                posts: action.payload
             };
         case FromBlogActions.POST:
             return {
-                ...state
+                ...state,
+                post: action.payload
             };
         default:
             return {
