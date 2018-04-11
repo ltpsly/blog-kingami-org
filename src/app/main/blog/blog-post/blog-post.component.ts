@@ -16,8 +16,8 @@ import * as fromAppReducer from '../../store/app.reducers';
   styleUrls: ['./blog-post.component.css']
 })
 export class BlogPostComponent implements OnInit {
-  post$: Observable<Article>;
   loading = true;
+  post: Article;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +33,19 @@ export class BlogPostComponent implements OnInit {
         this.store.dispatch(new fromBlogActions.GetPost(title));
       }
     );
-    this.post$ = this.store.select('blogReducer').map(res => res.post);
+    this.store.select('blogReducer')
+      .subscribe((state) => {
+        if (state.post === null || state.post === undefined) {
+          console.log('Sorry post with id not found', this.post);
+        } else {
+          this.post = state.post;
+          this.loading = false;
+        }
+      });
+  }
+
+  onClickTag(tag: string) {
+    console.log('loading tag', tag);
   }
 
 }

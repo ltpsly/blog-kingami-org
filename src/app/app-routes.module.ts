@@ -8,12 +8,12 @@ import { AboutComponent } from './main/shared/components/about/about.component';
 import { NextComponent } from './main/shared/components/next/next.component';
 import { BlogHomeComponent } from './main/blog/blog-home/blog-home.component';
 import { BlogPostComponent } from './main/blog/blog-post/blog-post.component';
-import { BlogListComponent } from './main/blog/blog-list/blog-list.component';
+import { BlogMainComponent } from './main/blog/blog-main/blog-main.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts', component: BlogHomeComponent, children: [
-    { path: '', component: BlogListComponent },
+    { path: '', component: BlogMainComponent },
     { path: ':post', component: BlogPostComponent }
   ]},
   { path: 'me', component: UserComponent },

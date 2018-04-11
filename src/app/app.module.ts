@@ -36,6 +36,7 @@ import { ApiService } from './main/shared/services/api.service';
 import { BlogService } from './main/shared/services/blog.service';
 import { UserService } from './main/shared/services/user.service';
 import { AuthService } from './main/shared/services/auth.service';
+import { BlogMainComponent } from './main/blog/blog-main/blog-main.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AuthService } from './main/shared/services/auth.service';
     BlogCommentComponent,
     FormatterPipe,
     BlogCommentFormComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    BlogMainComponent
   ],
   imports: [
     BrowserModule,

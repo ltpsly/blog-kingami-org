@@ -1,8 +1,12 @@
-<div id="loading-spinner" *ngIf="!(post$ | async)">
+<div id="loading-spinner" *ngIf="loading">
 	<i class="fa fa-spinner fa-pulse fa-2x"></i>
 </div>
-
-<div class="card my-4 border-light" *ngIf="(post$ | async) as post">
+<!-- <hr> -->
+<!-- {{post$ | async | json}} -->
+<!-- <hr> -->
+<!-- {{post | json}} -->
+<!-- <hr> -->
+<div class="card my-3 border-light" *ngIf="!loading">
   <div class="card-body">
 		<h3 class="card-title">
 			{{ post.title }}
@@ -16,10 +20,13 @@
 		<ul class="list-inline">
 			tags:
 			<li class="list-inline-item mb-1" *ngFor="let tag of post.tagList">
-				<a class="btn btn-light btn-sm px-1" href="#" role="button">{{ tag }}</a>
+				<a class="btn btn-light btn-sm px-1" (click)="onClickTag(tag)" 
+				[routerLink]=""
+				[queryParams]="{tag: tag}"
+				role="button">{{ tag }}</a>
 			</li>
 		</ul>
-		<hr>
+		<!-- <hr> -->
 		<!-- Post Content -->
 		<markdown [data]="post.body | formatter"></markdown>
 		
@@ -29,7 +36,7 @@
   </div>
 </div>
 
-<!-- <app-blog-comment-form></app-blog-comment-form> -->
+<app-blog-comment-form></app-blog-comment-form>
 
 <h3>Comments</h3>
 <!-- <app-blog-comment></app-blog-comment> -->

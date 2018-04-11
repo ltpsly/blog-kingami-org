@@ -16,8 +16,8 @@ export class BlogHomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('BlogHomeComponent');
+    // load posts to global section when the user visits for the first time
     this.store.dispatch(new fromBlogActions.LoadPosts());
-    // this.blogService.getPosts();
   }
 
 }
