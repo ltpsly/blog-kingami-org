@@ -1,0 +1,15 @@
+thead {
+    background-color: #BDBDBD;
+}
+
+#Completed {
+    background-color: #ABEBC6;
+}
+
+#Inprogress {
+    background-color: #CEF6CE;
+}
+
+#----------- {
+    background-color: #EFFBF8;
+}

@@ -1,29 +1,27 @@
-<div id="loading-spinner" *ngIf="loading">
+<div id="loading-spinner" *ngIf="!(post$ | async)">
 	<i class="fa fa-spinner fa-pulse fa-2x"></i>
 </div>
 
-{{ post | async | json }}
-
-<div class="card my-4 border-light" *ngIf="!loading">
+<div class="card my-4 border-light" *ngIf="(post$ | async) as post">
   <div class="card-body">
 		<h3 class="card-title">
-			{{ post.title | async }}
+			{{ post.title }}
 		</h3>
 		<hr>
 		<div class="text-muted">
-			Posted on {{ post.createdAt | async | date }} by
-			<a href="http://hbamithkumara.com">{{ post.author.username | async }}</a>
+			Posted on {{ post.createdAt | date }} by <a href="http://hbamithkumara.com" target="_blank">Ami</a>
+			<!-- <a href="http://hbamithkumara.com">{{ post.author.username }}</a> -->
 		</div>
 		
 		<ul class="list-inline">
 			tags:
-			<li class="list-inline-item mb-1" *ngFor="let tag of (post.tagList | async)">
+			<li class="list-inline-item mb-1" *ngFor="let tag of post.tagList">
 				<a class="btn btn-light btn-sm px-1" href="#" role="button">{{ tag }}</a>
 			</li>
 		</ul>
 		<hr>
 		<!-- Post Content -->
-		<markdown [data]="post.body | async | formatter"></markdown>
+		<markdown [data]="post.body | formatter"></markdown>
 		
 		<hr>
 		<!-- Post Recommendation -->

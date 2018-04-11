@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
 
 import { BlogService } from '../../shared/services/blog.service';
@@ -16,7 +16,7 @@ import * as fromAppReducer from '../../store/app.reducers';
   styleUrls: ['./blog-post.component.css']
 })
 export class BlogPostComponent implements OnInit {
-  post: Observable<Article>;
+  post$: Observable<Article>;
   loading = true;
 
   constructor(
@@ -28,26 +28,12 @@ export class BlogPostComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        let title = params['post'];
-        console.log('get post test title', title);
-        this.store.select('blogReducer')
-        .map((res) => {
-          // title = 'test';
-          title = 'MyToy Realworldd';
-          return Observable.of(res.posts.find((post) => post.title === title));
-        })
-        .subscribe((post) => {
-          if (post !== null || post !== undefined || !post ) {
-            console.log('im here inside if check', post);
-            this.post = post;
-          } else {
-            console.log('im here inside dispatch');
-            this.store.dispatch(new fromBlogActions.GetPost(title));
-            this.post = this.store.select('blogReducer').map(res => res.post);
-          }
-        });
+        const title = params['post'];
+        console.log('get post test title12345', title);
+        this.store.dispatch(new fromBlogActions.GetPost(title));
       }
     );
+    this.post$ = this.store.select('blogReducer').map(res => res.post);
   }
 
 }
