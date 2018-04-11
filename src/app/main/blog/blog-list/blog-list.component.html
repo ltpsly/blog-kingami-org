@@ -22,11 +22,11 @@
           </li>
         </ul>
         <p class="card-text">{{ post.description }}</p>
-        <a class="btn btn-link btn-sm" href="#">Read More >></a>
+        <a class="btn btn-light btn-sm px-1 text-info" href="#">Read More >></a>
       </div>
       <div class="card-footer text-muted">
-        Posted on {{ post.createdAt | date }} by
-        <a href="http://hbamithkumara.com">{{ post.author.username }}</a>
+        Posted on {{ post.createdAt | date }} by <a href="http://hbamithkumara.com" target="_blank">Ami</a>
+        <!-- <a href="http://hbamithkumara.com">{{ post.author.username }}</a> -->
       </div>
     </div>
   </li>
