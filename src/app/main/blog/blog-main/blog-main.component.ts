@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ArticleListConfig } from '../../shared/models';
+import { BlogService } from '../../shared/services/blog.service';
 
 @Component({
   selector: 'app-blog-main',
@@ -10,10 +11,15 @@ import { ArticleListConfig } from '../../shared/models';
 export class BlogMainComponent implements OnInit {
   listConfig: ArticleListConfig;
 
-  constructor() { }
+  constructor(private blogService: BlogService) { }
 
   ngOnInit() {
     this.setListTo('all');
+    this.blogService.tagSubject
+      .subscribe((tag) => {
+        console.log('tag inside blog main', tag);
+        this.setListTo('all', {tag: tag});
+      });
   }
 
   setListTo(type: string = '', filters: Object = {}) {

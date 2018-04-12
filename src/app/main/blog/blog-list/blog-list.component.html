@@ -18,7 +18,7 @@
         <ul class="list-inline">
           tags:
           <li class="list-inline-item mb-1" *ngFor="let tag of post.tagList">
-            <a class="btn btn-light btn-sm px-1" href="#" role="button">{{ tag }}</a>
+            <div class="px-1" style="border-radius: 3px; background-color: whitesmoke;">{{ tag }}</div>
           </li>
         </ul>
         <p class="card-text">{{ post.description }}</p>

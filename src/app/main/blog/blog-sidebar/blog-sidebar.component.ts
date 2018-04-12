@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { BlogService } from '../../shared/services/blog.service';
 
 @Component({
   selector: 'app-blog-sidebar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogSidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private blogService: BlogService) { }
 
   ngOnInit() {
+  }
+
+  onClick(tag: string) {
+    console.log('tag:  ', tag);
+    this.blogService.tagSubject.next(tag);
   }
 
 }
