@@ -51,12 +51,13 @@ export class BlogEffects {
         return action.payload;
     })
     .switchMap((options: any) => {
-        return Observable.of(this.afs.collection<Article>('posts'));
+        console.log('title in effect:    ', options);
+        return Observable.of(this.afs.collection<Article>('posts', ref => ref.where('title', '==', options).limit(1)));
     })
     .mergeMap((postsCollection) => {
         return postsCollection.valueChanges()
             .map((posts) => {
-                console.log('post in effect: post   ', posts[0]);
+                console.log('post in effect:  ', posts);
                 return {
                     type: FromBlogActions.POST,
                     payload: posts[0]
