@@ -37,54 +37,54 @@
   },
   {
     "task": "Popular Tags & Posts Handling",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "User Basic Component",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "User Details Component",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "User Authentication",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "About Basic Component",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "Report/Feedback Component",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "Contact Component",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "User Subscribe Handling",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "Network Component",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "Algolia Search Engine Integration",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "ML API Integration for Post Recommendation",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "Chatbot Integration",
-    "status": "-----------"
+    "status": "--------"
   },
   {
     "task": "Code Refactor",
-    "status": "-----------"
+    "status": "--------"
   }
 ]
