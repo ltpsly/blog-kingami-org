@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './main/home/home.component';
 import { NavbarComponent } from './main/shared/components/navbar/navbar.component';
 import { AppRoutesModule } from './app-routes.module';
-import { UserComponent } from './main/user/user.component';
 import { AboutComponent } from './main/shared/components/about/about.component';
 import { NextComponent } from './main/shared/components/next/next.component';
 import { FooterComponent } from './main/shared/components/footer/footer.component';
@@ -37,13 +36,14 @@ import { BlogService } from './main/shared/services/blog.service';
 import { UserService } from './main/shared/services/user.service';
 import { AuthService } from './main/shared/services/auth.service';
 import { BlogMainComponent } from './main/blog/blog-main/blog-main.component';
+import { ProfileComponent } from './main/user/profile/profile.component';
+import { SettingsComponent } from './main/user/settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    UserComponent,
     AboutComponent,
     NextComponent,
     FooterComponent,
@@ -59,7 +59,9 @@ import { BlogMainComponent } from './main/blog/blog-main/blog-main.component';
     FormatterPipe,
     BlogCommentFormComponent,
     SpinnerComponent,
-    BlogMainComponent
+    BlogMainComponent,
+    ProfileComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

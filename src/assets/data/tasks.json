@@ -37,7 +37,7 @@
   },
   {
     "task": "Popular Tags & Posts Handling",
-    "status": "--------"
+    "status": "Inprogress"
   },
   {
     "task": "User Basic Component",
@@ -53,7 +53,7 @@
   },
   {
     "task": "About Basic Component",
-    "status": "--------"
+    "status": "Completed"
   },
   {
     "task": "Report/Feedback Component",
@@ -69,6 +69,10 @@
   },
   {
     "task": "Network Component",
+    "status": "--------"
+  },
+  {
+    "task": "Server Side Rendering and SEO",
     "status": "--------"
   },
   {
