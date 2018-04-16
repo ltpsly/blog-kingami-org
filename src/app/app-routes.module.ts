@@ -8,17 +8,17 @@ import { NextComponent } from './main/shared/components/next/next.component';
 import { BlogHomeComponent } from './main/blog/blog-home/blog-home.component';
 import { BlogPostComponent } from './main/blog/blog-post/blog-post.component';
 import { BlogMainComponent } from './main/blog/blog-main/blog-main.component';
-import { ProfileComponent } from './main/user/profile/profile.component';
+import { UserHomeComponent } from './main/user/user-home/user-home.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: BlogHomeComponent, children: [
     { path: '', component: BlogMainComponent },
     { path: ':post', component: BlogPostComponent }
   ]},
-  { path: 'me', component: ProfileComponent },
+  // { path: 'me', component: UserHomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'next', component: NextComponent }
+  // { path: 'next', component: NextComponent }
 ];
 
 @NgModule({

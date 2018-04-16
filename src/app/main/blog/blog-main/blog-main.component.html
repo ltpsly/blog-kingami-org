@@ -1,11 +1,11 @@
 <ul class="nav">
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link"
        [ngClass]="{'active': listConfig.type === 'feed'}"
        (click)="setListTo('feed')">
        Your Feed
     </a>
-  </li>
+  </li> -->
   <li class="nav-item">
     <a class="nav-link"
        [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
@@ -22,3 +22,5 @@
 
 
 <app-blog-list [limit]="10" [config]="listConfig"></app-blog-list>
+
+<!-- <app-card></app-card> -->

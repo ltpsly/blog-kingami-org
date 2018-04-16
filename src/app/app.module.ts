@@ -38,6 +38,9 @@ import { AuthService } from './main/shared/services/auth.service';
 import { BlogMainComponent } from './main/blog/blog-main/blog-main.component';
 import { ProfileComponent } from './main/user/profile/profile.component';
 import { SettingsComponent } from './main/user/settings/settings.component';
+import { UserHomeComponent } from './main/user/user-home/user-home.component';
+import { SubscribeComponent } from './main/shared/components/subscribe/subscribe.component';
+import { CardComponent } from './main/shared/components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { SettingsComponent } from './main/user/settings/settings.component';
     SpinnerComponent,
     BlogMainComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    UserHomeComponent,
+    SubscribeComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
