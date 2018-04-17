@@ -1,9 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import { BlogService } from '../../shared/services/blog.service';
-import * as fromBlogActions from '../store/blog.actions';
-import * as fromAppReducer from '../../store/app.reducers';
 
 @Component({
   selector: 'app-blog-home',
@@ -12,12 +7,10 @@ import * as fromAppReducer from '../../store/app.reducers';
 })
 export class BlogHomeComponent implements OnInit {
 
-  constructor(private blogService: BlogService, private store: Store<fromAppReducer.AppState>) { }
+  constructor() { }
 
   ngOnInit() {
     console.log('BlogHomeComponent');
-    // load posts to global section when the user visits for the first time
-    this.store.dispatch(new fromBlogActions.LoadPosts());
   }
 
 }
