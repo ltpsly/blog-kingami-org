@@ -6,13 +6,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { MarkdownModule } from 'ngx-markdown';
 
-const appRoutes: Routes = [
-  { path: '', redirectTo: 'posts', pathMatch: 'full' },
-  { path: 'posts', component: BlogHomeComponent },
-  { path: ':post', component: BlogPostComponent },
-  { path: '**', component: ErrorComponent }
-];
-
 import { config } from './app.config';
 
 import { AppComponent } from './app.component';
@@ -28,6 +21,17 @@ import { BlogCommentComponent } from './main/blog/blog-comment/blog-comment.comp
 import { FormatterPipe } from './main/shared/pipes/formatter.pipe';
 import { BlogCommentFormComponent } from './main/blog/blog-comment-form/blog-comment-form.component';
 import { SubscribeComponent } from './main/shared/components/subscribe/subscribe.component';
+import { ApiService } from './main/shared/services/api.service';
+import { BlogService } from './main/shared/services/blog.service';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: 'posts', pathMatch: 'full' },
+  { path: 'posts', component: BlogHomeComponent, children: [
+    { path: '', component: BlogListComponent, pathMatch: 'full' },
+    { path: ':post', component: BlogPostComponent }
+  ]},
+  { path: '**', component: ErrorComponent }
+];
 
 @NgModule({
   declarations: [
@@ -53,7 +57,7 @@ import { SubscribeComponent } from './main/shared/components/subscribe/subscribe
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ApiService, BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
