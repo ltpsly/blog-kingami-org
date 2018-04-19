@@ -1,14 +1,10 @@
-<div id="loading-spinner" *ngIf="loadingBLC">
-  <i class="fa fa-spinner fa-pulse fa-2x"></i>
-</div>
-
 <!-- Blog Post List -->
 <ul class="list-unstyled text-center" *ngIf="!loadingBLC">
-  <li *ngFor="let post of posts">
-    <div class="card border-light my-2">
+  <li class="mt-4" *ngFor="let post of posts">
+    <div class="card border-light">
       <div class="card-body">
         <h3 class="card-title">
-          <a class="card-link text-dark" [routerLink]="[post.title]">{{ post.title }}</a>
+          <a class="card-link text-dark" [routerLink]="[post.slug]">{{ post.title }}</a>
         </h3>
         <ul class="list-inline">
           <li class="list-inline-item" *ngFor="let tag of post.tagList">
@@ -22,9 +18,3 @@
     </div>
   </li>
 </ul>
-
-
-loading: {{loadingBLC}}
-error: {{errorBLC}}
-testPosts: {{testPosts|json}}
-posts: {{posts|json}}

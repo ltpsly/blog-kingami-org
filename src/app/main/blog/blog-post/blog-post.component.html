@@ -2,10 +2,8 @@
 	<i class="fa fa-spinner fa-pulse fa-2x"></i>
 </div>
 
-{{loadingBPC}}
-
 <!-- Post Details -->
-<div class="card my-3 border-light" *ngIf="false">
+<div class="card my-3 border-light" *ngIf="!loadingBPC">
 	<div class="card-body">
 		<h3 class="card-title">
 			{{ post.title }}
@@ -18,7 +16,11 @@
 
 		<ul class="list-inline">
 			<li class="list-inline-item mb-1" *ngFor="let tag of post.tagList">
-				<a class="btn btn-light btn-sm px-1" (click)="onClickTag(tag)" [routerLink]="" [queryParams]="{tag: tag}" role="button">{{ tag }}</a>
+				<a 
+					class="btn btn-light btn-sm px-1" 
+					role="button" 
+					style="border-radius: 3px; background-color: whitesmoke;">{{ tag }}
+				</a>
 			</li>
 		</ul>
 		<hr>

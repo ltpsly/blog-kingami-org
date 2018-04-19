@@ -1,0 +1,12 @@
+<div id="loading-spinner" *ngIf="loadingBMC">
+  <i class="fa fa-spinner fa-pulse fa-2x"></i>
+</div>
+
+<div *ngIf="!loadingBMC">
+  <app-blog-list [posts]="posts"></app-blog-list>
+</div>
+
+<!-- loading: {{loadingBMC}}
+error: {{errorBLC}}
+testPosts: {{testPosts|json}}
+posts: {{posts|json}} -->

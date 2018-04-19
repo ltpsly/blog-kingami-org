@@ -11,13 +11,23 @@ import { BlogService } from '../../shared/services/blog.service';
 })
 export class BlogPostComponent implements OnInit {
   post: Article;
-  loadingBPC: true;
-  errorBPC: false;
+  loadingBPC = true;
+  errorBPC = false;
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('BlogPostComponent');
+    this.route.params
+      .subscribe((params: Params) => {
+        const slug = params['post'];
+        if (slug !== null && slug !== undefined) {
+          this.blogService.getPost(slug)
+          .subscribe((post: Article) => {
+            this.post = post;
+            this.loadingBPC = false;
+          });
+        }
+      });
   }
 
 }

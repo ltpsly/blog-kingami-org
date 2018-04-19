@@ -23,11 +23,12 @@ import { BlogCommentFormComponent } from './main/blog/blog-comment-form/blog-com
 import { SubscribeComponent } from './main/shared/components/subscribe/subscribe.component';
 import { ApiService } from './main/shared/services/api.service';
 import { BlogService } from './main/shared/services/blog.service';
+import { BlogMainComponent } from './main/blog/blog-main/blog-main.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: BlogHomeComponent, children: [
-    { path: '', component: BlogListComponent, pathMatch: 'full' },
+    { path: '', component: BlogMainComponent, pathMatch: 'full' },
     { path: ':post', component: BlogPostComponent }
   ]},
   { path: '**', component: ErrorComponent }
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     BlogCommentComponent,
     FormatterPipe,
     BlogCommentFormComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    BlogMainComponent
   ],
   imports: [
     BrowserModule,
